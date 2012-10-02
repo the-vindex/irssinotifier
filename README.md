@@ -21,13 +21,13 @@ If you have issues with notification spam from your status window, try adding yo
 - plugins.var.perl.irssinotifier.encryption_password
 The encryption password you set on your device, must be the same at both ends for notifications to work
 
-- plugins.var.perl.irssinotifier.ignore_active_window = "on"
+- plugins.var.perl.irssinotifier.ignore_active_window
 Set to "on" or "off" to decide whether you want to ignore notifications from the currently active window or not (defaults to "on")
 
-- plugins.var.perl.irssinotifier.require_idle_seconds = "0"
+- plugins.var.perl.irssinotifier.require_idle_seconds
 Set to an integer to specify a certain idle time before notifications are sent (defaults to 0, because away_only is on by default)
 
-- plugins.var.perl.irssinotifier.use_full_buffer_name 
+- plugins.var.perl.irssinotifier.use_full_buffer_name
 Set to "on" or "off" to determine whether you want to see the full buffer name (e.g. irc.freenode.#irssi) when notifications are sent. Useful if you're in multiple channels with the same name!
 
 ##Original README below
