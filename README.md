@@ -9,25 +9,33 @@ I've just ported the script so it'll work on Weechat, everything else is as befo
 ##Variables:
 
 - plugins.var.perl.irssinotifier.api_token
-set this to your irssinotifier API token, available from https://irssinotifier.appspot.com after registration
+
+Set this to your irssinotifier API token, available from https://irssinotifier.appspot.com after registration
 
 - plugins.var.perl.irssinotifier.away_only
-set to "on" or "off" to specify whether or not you want notifications only while away (defaults to "on")
+
+Set to "on" or "off" to specify whether or not you want notifications only while away (defaults to "on")
 
 - plugins.var.perl.irssinotifier.channels_to_ignore
-comma separated list of channels to ignore, e.g. "#idlerpg,#webvictim"
+
+Comma separated list of channels to ignore, e.g. "#idlerpg,#webvictim"
+
 If you have issues with notification spam from your status window, try adding your nick into this list, i.e. "webvictim"
 
 - plugins.var.perl.irssinotifier.encryption_password
+
 The encryption password you set on your device, must be the same at both ends for notifications to work
 
 - plugins.var.perl.irssinotifier.ignore_active_window
+
 Set to "on" or "off" to decide whether you want to ignore notifications from the currently active window or not (defaults to "on")
 
 - plugins.var.perl.irssinotifier.require_idle_seconds
+
 Set to an integer to specify a certain idle time before notifications are sent (defaults to 0, because away_only is on by default)
 
 - plugins.var.perl.irssinotifier.use_full_buffer_name
+
 Set to "on" or "off" to determine whether you want to see the full buffer name (e.g. irc.freenode.#irssi) when notifications are sent. Useful if you're in multiple channels with the same name!
 
 ##Original README below
