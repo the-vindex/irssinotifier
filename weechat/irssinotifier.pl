@@ -2,8 +2,7 @@ use POSIX;
 use Data::Dumper;
 
 my $scriptname = "irssinotifier";
-#my $version = "6";
-my $version = "11";
+my $version = "13";
 my $lastKeyboardActivity = time;
 
 my %SCRIPT = (
@@ -132,7 +131,7 @@ sub hilite {
     my $result = `/usr/bin/env wget --no-check-certificate -qO- /dev/null $data https://irssinotifier.appspot.com/API/Message`;
     if ($? != 0) {
         # Something went wrong, might be network error or authorization issue. Probably no need to alert user, though.
-		prt($scriptname.": Sending highlight to server failed, check http://irssinotifier.appspot.com for updates");
+		#prt($scriptname.": Sending highlight to server failed, check http://irssinotifier.appspot.com for updates");
 		return weechat::WEECHAT_RC_OK;
     }
 		
