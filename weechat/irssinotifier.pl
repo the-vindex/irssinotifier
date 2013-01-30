@@ -52,7 +52,7 @@ sub text_handler {
 		activity_allows_hilight() &&
 		target_allows_hilight($short_channel)
     ) {
-		hilite($msg, $nick, $target);
+		send_notification($msg, $nick, $target);
 	}	
 	
 	return weechat::WEECHAT_RC_OK;
@@ -81,7 +81,7 @@ sub dangerous_string {
   return $s =~ m/"/ || $s =~ m/`/ || $s =~ m/\\/;
 }
 
-sub hilite {
+sub send_notification {
 	my ($msg, $nick, $target) = @_;
 
 	if (weechat::config_get_plugin('api_token') eq "") {
@@ -110,6 +110,9 @@ sub hilite {
 		return weechat::WEECHAT_RC_OK;
     }
 
+	# strip colours from the string before sending it for notification
+	$msg = weechat::string_remove_color($msg, "");
+
 	# verify that the encryption password is 1) set and 2) not badly written
 	my $encryption_password = weechat::config_get_plugin('encryption_password');
     if ($encryption_password) {
@@ -128,7 +131,7 @@ sub hilite {
 	my $data = "--post-data=apiToken=$api_token\\&message=$msg\\&channel=$target\\&nick=$nick\\&version=$version";
 
 	# run wget with the necessary parameters
-    my $result = `/usr/bin/env wget --no-check-certificate -qO- /dev/null $data https://irssinotifier.appspot.com/API/Message`;
+    my $result = `/usr/bin/env wget --tries=1 --timeout=10 --no-check-certificate -qO- /dev/null $data https://irssinotifier.appspot.com/API/Message`;
     if ($? != 0) {
         # Something went wrong, might be network error or authorization issue. Probably no need to alert user, though.
 		#prt($scriptname.": Sending highlight to server failed, check http://irssinotifier.appspot.com for updates");
