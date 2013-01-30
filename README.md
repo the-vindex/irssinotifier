@@ -6,6 +6,10 @@ This is a fork of Lauri Härsilä's irssinotifier script for delivering IRC highli
 
 I've just ported the script so it'll work on Weechat, everything else is as before.
 
+##GNTP
+
+You'll need the python gntp package installed for this script to work. Your package manager may have it (try 'apt-cache search gntp' or 'yum search gntp') but if not, use pip to install it ('sudo pip-python install gntp') on Fedora.
+
 ##Variables:
 
 - plugins.var.perl.irssinotifier.api_token
@@ -48,7 +52,7 @@ Web page: https://irssinotifier.appspot.com/
 
 ##Goals:
 
-- Low battery usage (users C2dm)
+- Low battery usage (uses C2dm)
 - Easy to set up (hosted server)
 - Good privacy (end-to-end -encryption)
 
